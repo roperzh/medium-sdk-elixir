@@ -1,0 +1,2 @@
+defmodule MediumClient do
+end
