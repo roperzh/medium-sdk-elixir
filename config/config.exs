@@ -10,11 +10,11 @@ use Mix.Config
 
 # You can configure for your application as:
 #
-#     config :medium_client, key: :value
+#     config :medium, key: :value
 #
 # And access this configuration in your application as:
 #
-#     Application.get_env(:medium_client, :key)
+#     Application.get_env(:medium, :key)
 #
 # Or configure a 3rd-party app:
 #

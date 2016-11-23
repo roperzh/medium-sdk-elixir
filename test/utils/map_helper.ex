@@ -1,7 +1,7 @@
-defmodule MediumClient.Utils.MapHelperTest do
+defmodule Medium.Utils.MapHelperTest do
   use ExUnit.Case, async: true
 
-  alias MediumClient.Utils.MapHelper
+  alias Medium.Utils.MapHelper
 
   @moduletag utils: :map_helper
 

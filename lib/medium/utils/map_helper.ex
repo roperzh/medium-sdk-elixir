@@ -1,4 +1,4 @@
-defmodule MediumClient.Utils.MapHelper do
+defmodule Medium.Utils.MapHelper do
   @moduledoc """
     Utility functions to deal with Maps
   """
