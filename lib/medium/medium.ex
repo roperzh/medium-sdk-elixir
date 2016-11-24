@@ -34,4 +34,8 @@ defmodule Medium do
   def me(client) do
     get client, "/me"
   end
+
+  def publications(client, user_id) do
+    get client, "/users/#{user_id}/publications"
+  end
 end
