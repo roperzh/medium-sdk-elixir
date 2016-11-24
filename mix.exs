@@ -9,6 +9,8 @@ defmodule Medium.Mixfile do
       elixirc_paths: elixirc_paths(Mix.env),
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: ["coveralls": :test, "coveralls.travis": :test],
       deps: deps()
     ]
   end
@@ -29,7 +31,8 @@ defmodule Medium.Mixfile do
       {:hackney, "~> 1.6"},
       {:poison, "~> 3.0"},
       # Only test
-      {:bypass, "~> 0.1", only: :test}
+      {:bypass, "~> 0.1", only: :test},
+      {:excoveralls, "~> 0.5", only: :test}
     ]
   end
 end
