@@ -9,7 +9,7 @@ defmodule Medium.PublicationsTest do
     Bypass.expect helpers.bypass, fn conn ->
       assert "/users/#{user_id}/publications" == conn.request_path
       assert "GET" == conn.method
-      Plug.Conn.resp(conn, 200, Poison.encode!([]))
+      resp conn, 200, []
     end
 
     publications = Medium.publications(helpers.client, user_id)

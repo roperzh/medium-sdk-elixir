@@ -7,11 +7,11 @@ defmodule Medium.MeTest do
     Bypass.expect helpers.bypass, fn conn ->
       assert "/me" == conn.request_path
       assert "GET" == conn.method
-      Plug.Conn.resp(conn, 200, Poison.encode!(%{id: 123}))
+      resp conn, 200, %{id: 123, imageUrl: "some"}
     end
 
     user_info = Medium.me(helpers.client)
-
     assert user_info.id == 123
+    assert user_info.image_url == "some"
   end
 end
