@@ -2,6 +2,8 @@ defmodule Medium.MeTest do
   use ExUnit.Case, async: true
   use Tesla
 
+  @moduletag api: :me
+
   setup do
     bypass = Bypass.open
 
