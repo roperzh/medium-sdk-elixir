@@ -30,4 +30,8 @@ defmodule Medium do
       {Tesla.Middleware.Headers, %{"Authorization" => "Bearer #{token}" }}
     ]
   end
+
+  def me(client) do
+    get client, "/me"
+  end
 end
