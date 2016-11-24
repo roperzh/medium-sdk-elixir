@@ -1,3 +1,6 @@
+[![Build Status](https://travis-ci.org/roperzh/medium-sdk-elixir.svg?branch=master)](https://travis-ci.org/roperzh/medium-sdk-elixir)
+[![Coverage Status](https://coveralls.io/repos/github/roperzh/medium-sdk-elixir/badge.svg?branch=master)](https://coveralls.io/github/roperzh/medium-sdk-elixir?branch=master)
+
 # Medium SDK for Elixir(WIP)
 
 An Elixir SDK for the Medium.com API.
