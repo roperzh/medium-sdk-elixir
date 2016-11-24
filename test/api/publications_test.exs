@@ -1,19 +1,7 @@
 defmodule Medium.PublicationsTest do
-  use ExUnit.Case, async: true
-  use Tesla
+  use Medium.Cases.ApiCase, async: true
 
   @moduletag api: :publications
-
-  setup do
-    bypass = Bypass.open
-
-    client = Tesla.build_client([
-      {Tesla.Middleware.Headers, %{"Authorization" => "Bearer random-token" }},
-      {Tesla.Middleware.BaseUrl, "http://localhost:#{bypass.port}"}
-    ])
-
-    {:ok, client: client, bypass: bypass}
-  end
 
   test "#publications/2 sends the correct params and returns data", helpers do
     user_id = 15
