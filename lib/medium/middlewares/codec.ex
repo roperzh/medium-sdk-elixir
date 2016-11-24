@@ -1,4 +1,13 @@
-defmodule Medium.Utils.MapHelper do
+defmodule Medium.Middlewares.Codec do
+
+  def call(env, next, _opts) do
+    env
+    |> Tesla.run(next)
+    |> Map.get(:body)
+    |> Poison.decode!
+    |> string_to_atom_keys
+  end
+
   @moduledoc """
     Utility functions to deal with Maps
   """
