@@ -20,14 +20,14 @@ defmodule Medium do
 
   use Tesla
 
-  plug Tesla.Middleware.BaseUrl, "https://api.medium.com/v1"
   plug Medium.Middlewares.Codec
   plug Tesla.Middleware.JSON
 
   adapter Tesla.Adapter.Hackney
 
-  def client(token) do
+  def client(token, url \\ "https://api.medium.com/v1") do
     Tesla.build_client [
+      {Tesla.Middleware.BaseUrl, url},
       {Tesla.Middleware.Headers, %{"Authorization" => "Bearer #{token}" }}
     ]
   end
