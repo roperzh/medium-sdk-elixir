@@ -22,7 +22,9 @@ defmodule Medium.Mixfile do
     [
       {:tesla, "~> 0.5.0"},
       {:hackney, "~> 1.6"},
-      {:poison, "~> 3.0"}
+      {:poison, "~> 3.0"},
+      # Only test
+      {:bypass, "~> 0.1", only: :test}
     ]
   end
 end
