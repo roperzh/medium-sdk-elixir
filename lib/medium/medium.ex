@@ -27,7 +27,7 @@ defmodule Medium do
 
   def client(token) do
     Tesla.build_client [
-      {Tesla.Middleware.Headers, %{"Authorization" => "Bearer " <> token }}
+      {Tesla.Middleware.Headers, %{"Authorization" => "Bearer #{token}" }}
     ]
   end
 end
