@@ -22,6 +22,7 @@ defmodule Medium do
 
   plug Tesla.Middleware.BaseUrl, "https://api.medium.com/v1"
   plug Medium.Middlewares.Codec
+  plug Tesla.Middleware.JSON
 
   adapter Tesla.Adapter.Hackney
 
