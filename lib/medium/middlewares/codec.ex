@@ -4,8 +4,19 @@ defmodule Medium.Middlewares.Codec do
     env
     |> Tesla.run(next)
     |> Map.get(:body)
-    |> Poison.decode!
+    |> get_in(["data"])
+    |> snake_keys
     |> string_to_atom_keys
+  end
+
+  def snake_keys(data) when is_map(data) do
+    Enum.reduce data, %{}, fn {k, v}, acc ->
+      Map.put(acc, Macro.underscore(k), v)
+    end
+  end
+
+  def snake_keys(data) when is_list(data) do
+    Enum.map data, &snake_keys/1
   end
 
   @moduledoc """
