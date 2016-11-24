@@ -39,4 +39,12 @@ defmodule Medium do
   def publications(client, user_id) do
     get client, "/users/#{user_id}/publications"
   end
+
+  def publish(client, author_id, publication) do
+    post client, "/users/#{author_id}/posts", publication
+  end
+
+  def publish_comment(client, publication_id, publication) do
+    post client, "/publications/#{publication_id}/posts", publication
+  end
 end
