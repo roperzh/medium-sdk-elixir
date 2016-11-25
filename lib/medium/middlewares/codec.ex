@@ -3,10 +3,16 @@ defmodule Medium.Middlewares.Codec do
   def call(env, next, _opts) do
     env
     |> Tesla.run(next)
-    |> Map.get(:body)
-    |> get_in(["data"])
+    |> descompose_keys
     |> snake_keys
     |> string_to_atom_keys
+  end
+
+  def descompose_keys(response) do
+    case Map.get(response, :body) do
+      %{"data" => data} -> data
+      errors -> errors
+    end
   end
 
   def snake_keys(data) when is_map(data) do
