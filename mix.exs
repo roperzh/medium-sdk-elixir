@@ -31,7 +31,7 @@ defmodule Medium.Mixfile do
     [
       {:tesla, "~> 0.5.0"},
       {:hackney, "~> 1.6"},
-      {:poison, "~> 3.0"},
+      {:poison, "~> 2.2 or ~> 3.0"},
       # Only dev
       {:ex_doc, ">= 0.0.0", only: :dev},
       # Only test
