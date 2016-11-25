@@ -6,6 +6,8 @@ defmodule Medium.Mixfile do
       app: :medium,
       version: "0.1.0",
       elixir: "~> 1.3",
+      description: "An Elixir api wrapper for the Medium.com API",
+      package: package(),
       elixirc_paths: elixirc_paths(Mix.env),
       build_embedded: Mix.env == :prod,
       start_permanent: Mix.env == :prod,
@@ -30,9 +32,21 @@ defmodule Medium.Mixfile do
       {:tesla, "~> 0.5.0"},
       {:hackney, "~> 1.6"},
       {:poison, "~> 3.0"},
+      # Only dev
+      {:ex_doc, ">= 0.0.0", only: :dev},
       # Only test
       {:bypass, "~> 0.1", only: :test},
       {:excoveralls, "~> 0.5", only: :test}
     ]
+  end
+
+  defp package do
+    [
+     name: :medium,
+     files: ["lib", "mix.exs", "README*", "LICENSE*"],
+     maintainers: ["Roberto Dip"],
+     licenses: ["MIT"],
+     links: %{"GitHub" => "https://github.com/roperzh/medium-sdk-elixir"}
+   ]
   end
 end
