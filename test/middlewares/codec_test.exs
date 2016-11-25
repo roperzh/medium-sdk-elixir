@@ -3,7 +3,7 @@ defmodule Medium.Middlewares.CodecTest do
 
   alias Medium.Middlewares.Codec
 
-  @moduletag utils: :map_helper
+  @moduletag utils: :codec
 
   test "#string_to_atom_keys converts all string keys to atoms" do
     string_keys = %{"one" => 1, "two" => 2}
