@@ -5,7 +5,7 @@ defmodule Medium.ErrorsTest do
     Bypass.expect helpers.bypass, fn conn ->
       assert "/me" == conn.request_path
       assert "GET" == conn.method
-      resp conn, 401, %{errors: [%{code: 3434, message: "some error"}]}
+      resp conn, 401, [%{code: 3434, message: "some error"}], true
     end
 
     response = Medium.me(helpers.client)

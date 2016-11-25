@@ -4,8 +4,13 @@ defmodule Medium.Cases.ApiCase do
 
   using do
     quote do
-      def resp(conn, code \\ 200, params \\ %{}) do
-        resp_data = Poison.encode!(%{data: params})
+      def resp(conn, code \\ 200, params \\ %{}, errored \\ false) do
+        params = case errored do
+          false -> %{data: params}
+          true -> %{errors: params}
+        end
+
+        resp_data = Poison.encode!(params)
 
         conn
         |> Plug.Conn.resp(code, resp_data)
