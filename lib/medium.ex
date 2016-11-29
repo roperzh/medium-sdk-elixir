@@ -56,6 +56,7 @@ defmodule Medium do
     user_info.username //=> "roperzh"
     user_info.image_url //=> "https://images.medium.com/0*fkfQiTzT7TlUGGyI.png"
   """
+
   def me(client) do
     get client, "/me"
   end
@@ -91,14 +92,18 @@ defmodule Medium do
   end
 
   @doc """
-  This API allows creating a post and associating it with a publication on Medium.
+  This API allows creating a post and associating it with a
+  publication on Medium.
 
   _Please check the official
   [documentation](https://github.com/Medium/medium-api-docs#creating-a-post-under-a-publication)_
 
   ## Examples
 
-    resp = Medium.client("token") |> Medium.publish_comment("publication_id", publication_data)
+    resp =
+      token
+      |> Medium.client
+      |> Medium.publish_comment("publication_id", publication_data)
   """
   def publish_comment(client, publication_id, publication) do
     post client, "/publications/#{publication_id}/posts", publication
