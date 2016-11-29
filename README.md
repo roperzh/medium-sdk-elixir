@@ -64,7 +64,7 @@ to see all available methods.
 - [ ] Add endpoints related to authentication.
 - [x] Add endpoints to consume and publish data.
 - [x] Add tests
-- [ ] Add doctests
+- [x] Add doctests (not wanted anymore, see [why](http://elixir-lang.org/docs/stable/ex_unit/ExUnit.DocTest.html#module-when-not-to-use-doctest))
 - [x] Add documentation
 
 
