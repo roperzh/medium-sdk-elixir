@@ -36,7 +36,6 @@ defmodule Medium do
       client = Medium.client("my-access-token")
       test_client = Medium.client("my-acces-token", "http://localhost")
   """
-
   def client(token, url \\ "https://api.medium.com/v1") do
     Tesla.build_client [
       {Tesla.Middleware.BaseUrl, url},
@@ -56,7 +55,6 @@ defmodule Medium do
       user_info.username //=> "roperzh"
       user_info.image_url //=> "https://images.medium.com/0*fkfQiTzT7TlUGGyI.png"
   """
-
   def me(client) do
     get client, "/me"
   end
@@ -71,7 +69,6 @@ defmodule Medium do
 
       publications = Medium.client("token") |> Medium.publications("user_id")
   """
-
   def publications(client, user_id) do
     get client, "/users/#{user_id}/publications"
   end
@@ -90,7 +87,6 @@ defmodule Medium do
         |> Medium.client
         |> Medium.publications("publication_id")
   """
-
   def contributors(client, publication_id) do
     get client, "/publications/#{publication_id}/contributors"
   end
@@ -105,7 +101,6 @@ defmodule Medium do
 
       resp = Medium.client("token") |> Medium.publish("user_id", publication_data)
   """
-
   def publish(client, author_id, publication) do
     post client, "/users/#{author_id}/posts", publication
   end
