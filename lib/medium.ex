@@ -33,8 +33,8 @@ defmodule Medium do
 
   ## Examples
 
-    client = Medium.client("my-access-token")
-    test_client = Medium.client("my-acces-token", "http://localhost")
+      client = Medium.client("my-access-token")
+      test_client = Medium.client("my-acces-token", "http://localhost")
   """
 
   def client(token, url \\ "https://api.medium.com/v1") do
@@ -52,9 +52,9 @@ defmodule Medium do
 
   ## Examples
 
-    user_info = Medium.client("token") |> Medium.me
-    user_info.username //=> "roperzh"
-    user_info.image_url //=> "https://images.medium.com/0*fkfQiTzT7TlUGGyI.png"
+      user_info = Medium.client("token") |> Medium.me
+      user_info.username //=> "roperzh"
+      user_info.image_url //=> "https://images.medium.com/0*fkfQiTzT7TlUGGyI.png"
   """
 
   def me(client) do
@@ -69,7 +69,7 @@ defmodule Medium do
 
   ## Examples
 
-    publications = Medium.client("token") |> Medium.publications("user_id")
+      publications = Medium.client("token") |> Medium.publications("user_id")
   """
 
   def publications(client, user_id) do
@@ -85,10 +85,10 @@ defmodule Medium do
 
   ## Examples
 
-    contributors =
-      token
-      |> Medium.client
-      |> Medium.publications("publication_id")
+      contributors =
+        token
+        |> Medium.client
+        |> Medium.publications("publication_id")
   """
 
   def contributors(client, publication_id) do
@@ -103,7 +103,7 @@ defmodule Medium do
 
   ## Examples
 
-    resp = Medium.client("token") |> Medium.publish("user_id", publication_data)
+      resp = Medium.client("token") |> Medium.publish("user_id", publication_data)
   """
 
   def publish(client, author_id, publication) do
@@ -119,10 +119,10 @@ defmodule Medium do
 
   ## Examples
 
-    resp =
-      token
-      |> Medium.client
-      |> Medium.publish_comment("publication_id", publication_data)
+      resp =
+        token
+        |> Medium.client
+        |> Medium.publish_comment("publication_id", publication_data)
   """
   def publish_comment(client, publication_id, publication) do
     post client, "/publications/#{publication_id}/posts", publication
