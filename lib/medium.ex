@@ -77,6 +77,25 @@ defmodule Medium do
   end
 
   @doc """
+  Returns a list of contributors for a given publication.
+
+  _Please check the official
+  [documentation](https://github.com/Medium/medium-api-docs#listing-the-users-publications)_
+
+
+  ## Examples
+
+    contributors =
+      token
+      |> Medium.client
+      |> Medium.publications("publication_id")
+  """
+
+  def contributors(client, publication_id) do
+    get client, "/publications/#{publication_id}/contributors"
+  end
+
+  @doc """
   Creates a post on the authenticated user’s profile.
 
   _Please check the official
