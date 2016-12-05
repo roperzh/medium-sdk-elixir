@@ -25,6 +25,8 @@ defmodule Medium do
 
   adapter Tesla.Adapter.Hackney
 
+  @base_url "https://api.medium.com/v1"
+
   @doc """
   Generate a client which will use a defined `token` for future requests
 
@@ -36,7 +38,7 @@ defmodule Medium do
       client = Medium.client("my-access-token")
       test_client = Medium.client("my-acces-token", "http://localhost")
   """
-  def client(token, url \\ "https://api.medium.com/v1") do
+  def client(token, url \\ @base_url) do
     Tesla.build_client [
       {Tesla.Middleware.BaseUrl, url},
       {Tesla.Middleware.Headers, %{"Authorization" => "Bearer #{token}" }}
