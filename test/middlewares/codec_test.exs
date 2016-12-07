@@ -5,27 +5,15 @@ defmodule Medium.Middlewares.CodecTest do
 
   @moduletag utils: :codec
 
-  test "#string_to_atom_keys converts all string keys to atoms" do
-    string_keys = %{"one" => 1, "two" => 2}
-    atom_keys = Codec.string_to_atom_keys string_keys
+  test "&descompose_keys/1 returns all under the data key" do
+    response = %{body: %{"data" => %{"a" => "b"}}}
 
-    assert atom_keys.one == 1
-    assert atom_keys.two == 2
+    assert Codec.descompose_keys(response) == %{"a" => "b"}
   end
 
-  test "#string_to_atom_keys works with nested Maps" do
-    string_keys = %{"one" => 1, "two" => %{"three" => 3}}
-    atom_keys = Codec.string_to_atom_keys string_keys
+  test "&descompose_keys/1 just returns the contents of body in any other case" do
+    response = %{body: %{"errors" => []}}
 
-    assert atom_keys.one == 1
-    assert atom_keys.two.three == 3
-  end
-
-  test "#string_to_atom_keys works with nested Lists" do
-    string_keys = %{"one" => 1, "two" => [%{"three" => 3}]}
-    atom_keys = Codec.string_to_atom_keys string_keys
-
-    assert atom_keys.one == 1
-    assert atom_keys.two == [%{three: 3}]
+    assert Codec.descompose_keys(response) == %{"errors" => []}
   end
 end
