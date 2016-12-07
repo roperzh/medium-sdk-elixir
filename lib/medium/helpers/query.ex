@@ -4,6 +4,8 @@ defmodule Medium.Helpers.Query do
   is not supported by the standard library.
   """
 
+  alias Medium.Helpers.Keys
+
   @doc """
   This function is a simple wrapper around `URI.encode_query/1`, but with
   a little tweak in order to accept lists as parameters.
@@ -14,6 +16,7 @@ defmodule Medium.Helpers.Query do
   """
   def encode(query) do
     query
+    |> Keys.to_str
     |> Enum.map(&encoder/1)
     |> Enum.join("&")
   end
