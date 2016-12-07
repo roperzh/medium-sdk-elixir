@@ -4,7 +4,7 @@ defmodule Medium.Mixfile do
   def project do
     [
       app: :medium,
-      version: "0.1.1",
+      version: "0.2.0",
       elixir: "~> 1.3",
       description: "An Elixir api wrapper for the Medium.com API",
       package: package(),
