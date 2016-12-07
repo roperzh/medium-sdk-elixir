@@ -21,12 +21,18 @@ defmodule Medium do
 
   use Tesla
 
+  alias Medium.Helpers.Query
+
   plug Medium.Middlewares.Codec
   plug Tesla.Middleware.JSON
 
   adapter Tesla.Adapter.Hackney
 
   @base_url "https://api.medium.com/v1"
+
+  def authorize_url(query) do
+    @base_url <> "/m/oauth/authorize?" <> Query.encode(query)
+  end
 
   @doc """
   Generate a client which will use a defined `token` for future requests
