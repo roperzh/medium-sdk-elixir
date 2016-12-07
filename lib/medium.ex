@@ -15,7 +15,8 @@ defmodule Medium do
   ## Authorship and License
   Medium is copyright 2016 Roberto Dip (http://roperzh.com)
   Medium is released under the
-  [MIT License](https://github.com/roperzh/medium-sdk-elixir/blob/master/LICENSE).
+  [MIT License]
+  (https://github.com/roperzh/medium-sdk-elixir/blob/master/LICENSE).
   """
 
   use Tesla
@@ -41,7 +42,7 @@ defmodule Medium do
   def client(token, url \\ @base_url) do
     Tesla.build_client [
       {Tesla.Middleware.BaseUrl, url},
-      {Tesla.Middleware.Headers, %{"Authorization" => "Bearer #{token}" }}
+      {Tesla.Middleware.Headers, %{"Authorization" => "Bearer #{token}"}}
     ]
   end
 
@@ -55,7 +56,7 @@ defmodule Medium do
 
       user_info = Medium.client("token") |> Medium.me
       user_info.username //=> "roperzh"
-      user_info.image_url //=> "https://images.medium.com/0*fkfQiTzT7TlUGGyI.png"
+      user_info.image_url //=> "https://images.medium.com/0*fkfQT7TlUGGyI.png"
   """
   def me(client) do
     get client, "/me"
@@ -64,8 +65,8 @@ defmodule Medium do
   @doc """
   Returns a full list of publications that the user is related to in some way.
 
-  _Please check the official
-  [documentation](https://github.com/Medium/medium-api-docs#listing-the-users-publications)_
+  _Please check the official [documentation]
+  (https://github.com/Medium/medium-api-docs#listing-the-users-publications)_
 
   ## Examples
 
@@ -78,8 +79,8 @@ defmodule Medium do
   @doc """
   Returns a list of contributors for a given publication.
 
-  _Please check the official
-  [documentation](https://github.com/Medium/medium-api-docs#listing-the-users-publications)_
+  _Please check the official [documentation]
+  (https://github.com/Medium/medium-api-docs#listing-the-users-publications)_
 
 
   ## Examples
@@ -101,7 +102,7 @@ defmodule Medium do
 
   ## Examples
 
-      resp = Medium.client("token") |> Medium.publish("user_id", publication_data)
+      resp = Medium.client("token") |> Medium.publish("user_id", publication)
   """
   def publish(client, author_id, publication) do
     post client, "/users/#{author_id}/posts", publication
@@ -111,8 +112,8 @@ defmodule Medium do
   This API allows creating a post and associating it with a
   publication on Medium.
 
-  _Please check the official
-  [documentation](https://github.com/Medium/medium-api-docs#creating-a-post-under-a-publication)_
+  _Please check the official [documentation]
+  (http://github.com/Medium/medium-api-docs#creating-a-post-under-a-publication)_
 
   ## Examples
 
