@@ -29,9 +29,45 @@ defmodule Medium do
   adapter Tesla.Adapter.Hackney
 
   @base_url "https://api.medium.com/v1"
+  @auth_url "https://medium.com/m/oauth/authorize?"
 
+  @doc """
+  Generate an authorization URL
+
+  Parameters for the url must be provided as a map, with the following
+  required keys:
+
+  - `client_id`, String
+  - `scope`, List of String elements
+  - `state`, String
+  - `response_type`, String
+  - `redirect_uri`, String
+
+  For more details, please check the official [documentation]
+  (https://github.com/Medium/medium-api-docs#21-browser-based-authentication)
+
+  """
   def authorize_url(query) do
-    @base_url <> "/m/oauth/authorize?" <> Query.encode(query)
+    @auth_url <> Query.encode(query)
+  end
+
+  @doc """
+  Request for a token
+
+  Parameters for the url must be provided as a map, with the following
+  required keys:
+
+  - `code`, String generated with the url provided via `authorize_url/1`
+  - `client_id`, String
+  - `client_secret`, String
+  - `grant_type`, String
+  - `redirect_uri`, String
+
+  For more details, please check the official [documentation]
+  (https://github.com/Medium/medium-api-docs#21-browser-based-authentication)
+  """
+  def get_token(query, url \\ @base_url) do
+    post url <> "/tokens", query
   end
 
   @doc """
