@@ -55,7 +55,7 @@ response = Medium.publish(client, user.id, post)
 ```
 
 Don't forget to check the Medium [API](https://github.com/Medium/medium-api-docs)
-or the [module](https://github.com/roperzh/medium-sdk-elixir/blob/master/lib/medium.ex)
+or the [documentation](https://hexdocs.pm/medium/api-reference.html)
 to see all available methods.
 
 
