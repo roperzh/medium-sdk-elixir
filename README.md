@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/roperzh/medium-sdk-elixir.svg?branch=master)](https://travis-ci.org/roperzh/medium-sdk-elixir)
 [![Coverage Status](https://coveralls.io/repos/github/roperzh/medium-sdk-elixir/badge.svg?branch=master)](https://coveralls.io/github/roperzh/medium-sdk-elixir?branch=master)
+[![Hex.pm](https://img.shields.io/hexpm/v/medium.svg)](https://hex.pm/packages/medium)
 
 # Medium SDK for Elixir
 
