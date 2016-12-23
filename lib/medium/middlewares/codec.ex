@@ -1,6 +1,6 @@
 defmodule Medium.Middlewares.Codec do
   @moduledoc """
-  This module acts as a `Tesla` middleware in order to process
+  Acts as a `Tesla` middleware in order to process
   the responses coming from the Medium API.
   """
 

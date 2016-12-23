@@ -1,6 +1,6 @@
 defmodule Medium.Helpers.Query do
   @moduledoc """
-  This module helps encoding lists in query parameters, as this operation
+  Helps encoding lists in query parameters, as this operation
   is not supported by the standard library.
   """
 
