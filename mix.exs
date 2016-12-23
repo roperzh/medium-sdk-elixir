@@ -6,7 +6,7 @@ defmodule Medium.Mixfile do
       app: :medium,
       version: "0.2.0",
       elixir: "~> 1.3",
-      description: "An Elixir api wrapper for the Medium.com API",
+      description: "An Elixir wrapper for the Medium.com API",
       package: package(),
       elixirc_paths: elixirc_paths(Mix.env),
       build_embedded: Mix.env == :prod,
