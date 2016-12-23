@@ -3,6 +3,8 @@ defmodule Medium.KeysTest do
 
   alias Medium.Helpers.Keys
 
+  doctest Keys
+
   @moduletag helpers: :keys
 
   test "&to_atom/1 converts all string keys to atoms" do
