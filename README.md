@@ -62,12 +62,9 @@ to see all available methods.
 
 ## Roadmap
 
-- [x] Add endpoints related to authentication.
-- [x] Add endpoints to consume and publish data.
-- [x] Add tests
-- [x] Add doctests (not wanted anymore, see [why](http://elixir-lang.org/docs/stable/ex_unit/ExUnit.DocTest.html#module-when-not-to-use-doctest))
-- [x] Add documentation
-
+- [ ] Improve the documentation
+- [ ] Improve the test suite
+- [ ] Remove the Tesla dependency
 
 ## Licence
 
