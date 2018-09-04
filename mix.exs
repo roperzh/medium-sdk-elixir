@@ -29,7 +29,7 @@ defmodule Medium.Mixfile do
 
   defp deps do
     [
-      {:tesla, ">= 0.5.0"},
+      {:tesla, "~> 0.5.0 or ~> 0.10"},
       {:hackney, "~> 1.6"},
       {:poison, "~> 2.2 or ~> 3.0"},
       # Only dev
