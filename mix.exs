@@ -29,13 +29,13 @@ defmodule Medium.Mixfile do
 
   defp deps do
     [
-      {:tesla, "~> 0.5.0"},
+      {:tesla, ">= 0.5.0"},
       {:hackney, "~> 1.6"},
       {:poison, "~> 2.2 or ~> 3.0"},
       # Only dev
       {:ex_doc, ">= 0.0.0", only: :dev},
       # Only test
-      {:bypass, "~> 0.1", only: :test},
+      {:bypass, "~> 0.1 or ~> 0.8", only: :test},
       {:excoveralls, "~> 0.5", only: :test}
     ]
   end
